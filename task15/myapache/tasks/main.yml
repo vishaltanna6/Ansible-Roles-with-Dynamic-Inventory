@@ -1,0 +1,19 @@
+---
+# tasks file for myapache
+- name: Installing Apache httpd
+  package:
+          name: "httpd"
+          state: present
+- name: Installing PHP
+  package:
+         name: "php"
+         state: present
+- name: Uploading webpages
+  copy:
+      src: "demo.php"
+      dest: "/var/www/html"
+- name: Starting httpd services
+  service:
+          name: "httpd"
+          state: started
+
